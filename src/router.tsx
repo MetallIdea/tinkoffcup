@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
       {
         path: '/module',
         lazy: async () => {
-          const { Template } = await import('./modules/NewModule/Template');
+          const { Template } = await import('./modules/_Template/Template');
           return {
             Component: Template,
           }
