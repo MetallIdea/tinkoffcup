@@ -1,0 +1,17 @@
+.self {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+
+  height: 100vh;
+}
+
+.title {
+  font-weight: 500;
+  text-align: center;
+}
+
+.text {
+  text-align: center;
+}
