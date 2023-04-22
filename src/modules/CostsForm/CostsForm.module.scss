@@ -1,5 +1,9 @@
 .self {
   margin: 16px;
+
+  & > * {
+    margin-top: 8px;
+  }
 }
 .buttons {
   margin-top: 16px;

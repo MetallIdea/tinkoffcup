@@ -38,38 +38,39 @@ export const CostsFormFields = observer(function CostsFormFields() {
 
   return (
     <Form>
-      <FormField name="title" label="Title" error={touched.title ? errors.title : undefined}  maxWidth="500px">
-        <InputText id="title" name="title" value={values.title} onChange={handleChange} onBlur={handleBlur} />
-      </FormField>
-      <FormField name="cost" label="Cost" error={touched.cost ? errors.cost : undefined} maxWidth="500px">
-        <InputNumber
-          id="cost"
-          name="cost"
-          value={values.cost}
-          onChange={handleChangeCost}
-          onBlur={handleBlur}
-          minFractionDigits={0}
-          maxFractionDigits={2}
-        />
-      </FormField>
-      <FormField name="date" label="Date" maxWidth="200px">
-        <Calendar showIcon dateFormat="dd.mm.yy" id="date" name="date" value={values.date} onChange={handleChange} onBlur={handleBlur} />
-      </FormField>
-      <FormField name="category" label="Category" maxWidth="500px">
-        <AutoComplete
-          id="category"
-          name="category"
-          field="title"
-          value={values.category}
-          suggestions={categories}
-          completeMethod={handleSearch}
-          onChange={handleChange}
-          dropdown />
-      </FormField>
-      <FormField name="description" label="Description">
-        <InputTextarea id="description" name="description" value={values.description} onChange={handleChange} onBlur={handleBlur} />
-      </FormField>
-
+      <div className="flex flex-column gap-3">
+        <FormField name="title" label="Title" error={touched.title ? errors.title : undefined}  maxWidth="500px">
+          <InputText id="title" name="title" value={values.title} onChange={handleChange} onBlur={handleBlur} />
+        </FormField>
+        <FormField name="cost" label="Cost" error={touched.cost ? errors.cost : undefined} maxWidth="500px">
+          <InputNumber
+            id="cost"
+            name="cost"
+            value={values.cost}
+            onChange={handleChangeCost}
+            onBlur={handleBlur}
+            minFractionDigits={0}
+            maxFractionDigits={2}
+          />
+        </FormField>
+        <FormField name="date" label="Date" maxWidth="200px">
+          <Calendar showIcon dateFormat="dd.mm.yy" id="date" name="date" value={values.date} onChange={handleChange} onBlur={handleBlur} />
+        </FormField>
+        <FormField name="category" label="Category" maxWidth="500px">
+          <AutoComplete
+            id="category"
+            name="category"
+            field="title"
+            value={values.category}
+            suggestions={categories}
+            completeMethod={handleSearch}
+            onChange={handleChange}
+            dropdown />
+        </FormField>
+        <FormField name="description" label="Description">
+          <InputTextarea id="description" name="description" value={values.description} onChange={handleChange} onBlur={handleBlur} />
+        </FormField>
+      </div>
       <div className={classNames('flex justify-content-end gap-2', styles.buttons)}>
         <Button type="button" label="Cancel" className="p-button-secondary" onClick={handleCancel} />
         <Button type="submit" label="Submit" />
