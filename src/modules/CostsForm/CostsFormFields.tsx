@@ -22,7 +22,7 @@ export const CostsFormFields = observer(function CostsFormFields() {
 
   const handleCancel = () => {
     resetForm();
-    navigate('/costs');
+    navigate('/');
   }
 
   const handleSearch = ({ query }: AutoCompleteCompleteEvent) => {

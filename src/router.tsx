@@ -1,15 +1,15 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import { Layout } from './core/components/layouts/Layout/Layout';
 import { ErrorBoundary } from './core/components/errors/ErrorBoundary/ErrorBoundary';
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: <Layout />,
     errorElement: <ErrorBoundary />,
     children: [
       {
-        path: '/costs',
+        path: '/',
         lazy: async () => {
           const { CostsList } = await import('./modules/CostsList/CostsList');
           return {

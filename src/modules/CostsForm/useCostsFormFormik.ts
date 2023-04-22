@@ -61,7 +61,7 @@ export function useCostsFormFormik() {
 
     resetForm();
 
-    navigate('/costs');
+    navigate('/');
   }
 
   return {
