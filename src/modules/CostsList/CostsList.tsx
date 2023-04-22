@@ -36,10 +36,10 @@ export const CostsList = observer(function CostsList() {
         tableStyle={{ minWidth: '50rem' }}
         header={<CostsListHeader />}
         footer={<CostsListFooter />}>
-        <Column field="title" body={(row: Cost) => <Link to={`/costs/${row.id}`}>{row.title}</Link>} />
-        <Column field="category" body={(row: Cost) => <Badge value={row.category?.title ?? 'uncategorized'} />} />
-        <Column field="cost" body={(row: Cost) => numberFormat.format(row.cost)} />
-        <Column field="date" body={(row: Cost) => dateFormat.format(row.date)} />
+        <Column header="Title" field="title" body={(row: Cost) => <Link to={`/costs/${row.id}`}>{row.title}</Link>} />
+        <Column header="Category" field="category" body={(row: Cost) => <Badge value={row.category?.title ?? 'uncategorized'} />} />
+        <Column header="Cost" field="cost" body={(row: Cost) => numberFormat.format(row.cost)} />
+        <Column header="Date" field="date" body={(row: Cost) => dateFormat.format(row.date)} />
         <Column
           body={
           (row: Cost) =>
@@ -50,7 +50,6 @@ export const CostsList = observer(function CostsList() {
 
       <ChartModal />
       <DeleteConfirmationModal />
-
       <CategoriesModal />
     </div>
   )

@@ -5,6 +5,8 @@ import { Category } from '../core/types/costs';
 export class CategoriesStore {
   categories: Category[] = [];
 
+  categoriesModalVisible = false;
+
   constructor() {
     makeAutoObservable(this);
   }
@@ -30,6 +32,14 @@ export class CategoriesStore {
     }
 
     return categoryValue;
+  }
+
+  showCategoriesModal() {
+    this.categoriesModalVisible = true;
+  }
+
+  hideCategoriesModal() {
+    this.categoriesModalVisible = false;
   }
 }
 

@@ -31,6 +31,10 @@ export const CostsListHeader = observer(function CostsListHeader() {
     chartStore.showChartModal();
   }
 
+  const handleClickCategories = () => {
+    categoriesStore.showCategoriesModal();
+  }
+
   return (
     <div className="flex justify-content-between align-items-center">
       <div className="flex justify-content-between align-items-center gap-2">
@@ -39,6 +43,7 @@ export const CostsListHeader = observer(function CostsListHeader() {
         </Link>
 
         <Button onClick={handleClickViewChart} label="View chart" />
+        <Button onClick={handleClickCategories} label="View categories" />
       </div>
 
       <div className="flex justify-content-end align-items-center gap-2">
