@@ -32,7 +32,7 @@ export class CostsStore implements ICostsStore {
 
   dateFilter: Date | null = null;
 
-  categoriesFilter: Category | null = null;
+  categoriesFilter: string | null = null;
 
   chartModalVisible = false;
 
@@ -84,6 +84,11 @@ export class CostsStore implements ICostsStore {
     this.filter();
   }
 
+  filterByCategories(category: string | null): void {
+    this.categoriesFilter = category;
+    this.filter();
+  }
+
   filter() {
     this.filteredCosts = this.costs.filter((cost) => {
       let isFiltered = true;
@@ -95,6 +100,11 @@ export class CostsStore implements ICostsStore {
           && cost.date.getDate() === this.dateFilter.getDate()
           && cost.date.getMonth() === this.dateFilter.getMonth()
           && cost.date.getFullYear() === this.dateFilter.getFullYear()
+      }
+
+      if (this.categoriesFilter) {
+        isFiltered = isFiltered
+          && cost.category?.id === this.categoriesFilter;
       }
 
       return isFiltered;
