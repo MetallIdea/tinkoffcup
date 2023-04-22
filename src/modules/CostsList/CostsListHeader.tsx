@@ -36,7 +36,7 @@ export const CostsListHeader = observer(function CostsListHeader() {
   }
 
   return (
-    <div className="flex justify-content-between align-items-center">
+    <div className="flex justify-content-between align-items-center flex-wrap">
       <div className="flex justify-content-between align-items-center gap-2">
         <Link to="/costs/new">
           <Button label="New" />
@@ -46,7 +46,7 @@ export const CostsListHeader = observer(function CostsListHeader() {
         <Button onClick={handleClickCategories} label="View categories" />
       </div>
 
-      <div className="flex justify-content-end align-items-center gap-2">
+      <div className="flex justify-content-end align-items-end gap-2 flex-wrap">
         <FormField name="text" label="Filter by title and cost">
           <InputText onChange={handleChangeSearch} />
         </FormField>
