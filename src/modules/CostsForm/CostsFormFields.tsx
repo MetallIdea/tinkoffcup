@@ -12,6 +12,9 @@ import { categoriesStore } from '../../store/CategoriesStore';
 import { useState } from 'react';
 import { Category } from '../../core/types/costs';
 import { InputNumber, InputNumberChangeEvent } from 'primereact/inputnumber';
+import classNames from 'classnames';
+
+import styles  from './CostsForm.module.scss';
 
 export const CostsFormFields = observer(function CostsFormFields() {
   const navigate = useNavigate();
@@ -38,8 +41,16 @@ export const CostsFormFields = observer(function CostsFormFields() {
       <FormField name="title" label="Title" error={touched.title ? errors.title : undefined}  maxWidth="500px">
         <InputText id="title" name="title" value={values.title} onChange={handleChange} onBlur={handleBlur} />
       </FormField>
-      <FormField name="description" label="Description">
-        <InputTextarea id="description" name="description" value={values.description} onChange={handleChange} onBlur={handleBlur} />
+      <FormField name="cost" label="Cost" error={touched.cost ? errors.cost : undefined} maxWidth="500px">
+        <InputNumber
+          id="cost"
+          name="cost"
+          value={values.cost}
+          onChange={handleChangeCost}
+          onBlur={handleBlur}
+          minFractionDigits={0}
+          maxFractionDigits={2}
+        />
       </FormField>
       <FormField name="date" label="Date" maxWidth="200px">
         <Calendar showIcon dateFormat="dd.mm.yy" id="date" name="date" value={values.date} onChange={handleChange} onBlur={handleBlur} />
@@ -55,19 +66,11 @@ export const CostsFormFields = observer(function CostsFormFields() {
           onChange={handleChange}
           dropdown />
       </FormField>
-      <FormField name="cost" label="Cost" error={touched.cost ? errors.cost : undefined} maxWidth="500px">
-        <InputNumber
-          id="cost"
-          name="cost"
-          value={values.cost}
-          onChange={handleChangeCost}
-          onBlur={handleBlur}
-          minFractionDigits={0}
-          maxFractionDigits={2}
-        />
+      <FormField name="description" label="Description">
+        <InputTextarea id="description" name="description" value={values.description} onChange={handleChange} onBlur={handleBlur} />
       </FormField>
 
-      <div className="flex">
+      <div className={classNames('flex justify-content-end gap-2', styles.buttons)}>
         <Button type="button" label="Cancel" className="p-button-secondary" onClick={handleCancel} />
         <Button type="submit" label="Submit" />
       </div>
