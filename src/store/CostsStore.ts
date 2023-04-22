@@ -30,7 +30,9 @@ export class CostsStore implements ICostsStore {
 
   searchFilter = '';
 
-  dateFilter: Date | null = null;
+  startDate: Date | null = null;
+
+  endDate: Date | null = null;
 
   categoriesFilter: string | null = null;
 
@@ -79,8 +81,13 @@ export class CostsStore implements ICostsStore {
     this.filter();
   }
 
-  filterByDate(date: Date | null): void {
-    this.dateFilter = date;
+  filterByStartDate(date: Date | null): void {
+    this.startDate = date;
+    this.filter();
+  }
+
+  filterByEndDate(date: Date | null): void {
+    this.endDate = date;
     this.filter();
   }
 
@@ -95,11 +102,15 @@ export class CostsStore implements ICostsStore {
       if (this.searchFilter) {
         isFiltered = isFiltered && cost.title.includes(this.searchFilter)
       }
-      if (this.dateFilter) {
+      if (this.startDate) {
         isFiltered = isFiltered
-          && cost.date.getDate() === this.dateFilter.getDate()
-          && cost.date.getMonth() === this.dateFilter.getMonth()
-          && cost.date.getFullYear() === this.dateFilter.getFullYear()
+          && cost.date.getTime() > this.startDate.getTime()
+      }
+      if (this.endDate) {
+        const endDate = new Date(this.endDate);
+        endDate.setDate(this.endDate.getDate() + 1)
+        isFiltered = isFiltered
+          && cost.date.getTime() < endDate.getTime()
       }
 
       if (this.categoriesFilter) {
@@ -115,7 +126,8 @@ export class CostsStore implements ICostsStore {
 
   resetFilter() {
     this.searchFilter = '';
-    this.dateFilter = null;
+    this.startDate = null;
+    this.endDate = null;
     this.categoriesFilter = null;
   }
 

@@ -13,8 +13,13 @@ export const CostsListHeader = observer(function CostsListHeader() {
   const handleChangeSearch: ChangeEventHandler<HTMLInputElement> = (event) => {
     costsStore.filterCost(event.target.value);
   }
-  const handleChangeDate = (event: CalendarChangeEvent) => {
-    costsStore.filterByDate(event.value instanceof Date ? event.value : null);
+
+  const handleChangeStartDate = (event: CalendarChangeEvent) => {
+    costsStore.filterByStartDate(event.value instanceof Date ? event.value : null);
+  }
+
+  const handleChangeEndDate = (event: CalendarChangeEvent) => {
+    costsStore.filterByEndDate(event.value instanceof Date ? event.value : null);
   }
 
   const handleChangeCategory = (event: DropdownChangeEvent) => {
@@ -39,8 +44,11 @@ export const CostsListHeader = observer(function CostsListHeader() {
         <FormField name="text" label="Filter by title and cost">
           <InputText onChange={handleChangeSearch} />
         </FormField>
-        <FormField name="date" label="Filter by date">
-          <Calendar showIcon dateFormat="dd.mm.yy" id="date" name="date" showButtonBar onChange={handleChangeDate} />
+        <FormField name="startDate" label="Start date">
+          <Calendar maxDate={costsStore.endDate ?? undefined} showIcon dateFormat="dd.mm.yy" id="startDate" name="startDate" showButtonBar onChange={handleChangeStartDate} />
+        </FormField>
+        <FormField name="endDate" label="End date">
+          <Calendar minDate={costsStore.startDate ?? undefined} showIcon dateFormat="dd.mm.yy" id="endDate" name="endDate" showButtonBar onChange={handleChangeEndDate} />
         </FormField>
         <FormField name="date" label="Filter by category">
           <Dropdown

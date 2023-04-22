@@ -6,10 +6,10 @@ export const CostsListFooter = observer(function CostsListFooter() {
   return (
     <div>
       <div>
-        Total items: {costsStore.costs.length}
+        Total items: {costsStore.filteredCosts.length}
       </div>
       <div>
-        Total spent: {numberFormat.format(costsStore.costs.reduce((prev, curr) => prev + curr.cost, 0))}
+        Total spent: {numberFormat.format(costsStore.filteredCosts.reduce((prev, curr) => prev + curr.cost, 0))}
       </div>
     </div>
   )

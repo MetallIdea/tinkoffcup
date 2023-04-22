@@ -16,7 +16,7 @@ import { InputNumber, InputNumberChangeEvent } from 'primereact/inputnumber';
 export const CostsFormFields = observer(function CostsFormFields() {
   const navigate = useNavigate();
 
-  const { values, errors, setFieldValue, handleChange, handleBlur, resetForm } = useFormikContext<FormValues>();
+  const { values, errors, touched, setFieldValue, handleChange, handleBlur, resetForm } = useFormikContext<FormValues>();
 
   const [categories, setCategories] = useState<Category[]>(categoriesStore.categories);
 
@@ -35,7 +35,7 @@ export const CostsFormFields = observer(function CostsFormFields() {
 
   return (
     <Form>
-      <FormField name="title" label="Title" error={errors.title}  maxWidth="500px">
+      <FormField name="title" label="Title" error={touched.title ? errors.title : undefined}  maxWidth="500px">
         <InputText id="title" name="title" value={values.title} onChange={handleChange} onBlur={handleBlur} />
       </FormField>
       <FormField name="description" label="Description">
@@ -55,7 +55,7 @@ export const CostsFormFields = observer(function CostsFormFields() {
           onChange={handleChange}
           dropdown />
       </FormField>
-      <FormField name="cost" label="Cost" error={errors.cost} maxWidth="500px">
+      <FormField name="cost" label="Cost" error={touched.cost ? errors.cost : undefined} maxWidth="500px">
         <InputNumber
           id="cost"
           name="cost"
