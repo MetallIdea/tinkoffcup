@@ -6,7 +6,7 @@ import styles from './Layout.module.scss';
 export const Layout = observer(function Layout() {
   return (
     <div className={styles.self}>
-      <div>Your costs</div>
+      <div className={styles.costsTitle}>Your costs</div>
       <Outlet />
     </div>
   )

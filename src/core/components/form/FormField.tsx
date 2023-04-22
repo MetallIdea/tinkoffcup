@@ -4,11 +4,13 @@ export type FormFieldProps = PropsWithChildren & {
   name: string;
   label?: string;
   helpText?: string;
+  error?: string;
+  maxWidth?: string;
 }
 
-export function FormField({ name, label, helpText, children }: FormFieldProps) {
+export function FormField({ name, label, helpText, error, maxWidth, children }: FormFieldProps) {
   return (
-    <div className="flex flex-column gap-2">
+    <div className="flex flex-column gap-2" style={{maxWidth}}>
       <label htmlFor={name}>{label}</label>
       {children}
       {
@@ -16,6 +18,13 @@ export function FormField({ name, label, helpText, children }: FormFieldProps) {
           <small id={`${name}-help`}>
             {helpText}
           </small>
+        ) : null
+      }
+      {
+        error ? (
+        <small id={`${name}-error`} className="p-error">
+          {error}
+        </small>
         ) : null
       }
     </div>

@@ -11,11 +11,12 @@ import { AutoComplete, AutoCompleteCompleteEvent } from 'primereact/autocomplete
 import { categoriesStore } from '../../store/CategoriesStore';
 import { useState } from 'react';
 import { Category } from '../../core/types/costs';
+import { InputNumber, InputNumberChangeEvent } from 'primereact/inputnumber';
 
 export const CostsFormFields = observer(function CostsFormFields() {
   const navigate = useNavigate();
 
-  const { values, errors, handleChange, handleBlur, resetForm } = useFormikContext<FormValues>();
+  const { values, errors, setFieldValue, handleChange, handleBlur, resetForm } = useFormikContext<FormValues>();
 
   const [categories, setCategories] = useState<Category[]>(categoriesStore.categories);
 
@@ -28,18 +29,22 @@ export const CostsFormFields = observer(function CostsFormFields() {
     setCategories(categoriesStore.findCategories(query));
   }
 
+  const handleChangeCost = ({ value }: InputNumberChangeEvent) => {
+    setFieldValue('cost', value);
+  }
+
   return (
     <Form>
-      <FormField name="title" label="Title" helpText={errors.title}>
+      <FormField name="title" label="Title" error={errors.title}  maxWidth="500px">
         <InputText id="title" name="title" value={values.title} onChange={handleChange} onBlur={handleBlur} />
       </FormField>
       <FormField name="description" label="Description">
         <InputTextarea id="description" name="description" value={values.description} onChange={handleChange} onBlur={handleBlur} />
       </FormField>
-      <FormField name="date" label="Date">
+      <FormField name="date" label="Date" maxWidth="200px">
         <Calendar showIcon dateFormat="dd.mm.yy" id="date" name="date" value={values.date} onChange={handleChange} onBlur={handleBlur} />
       </FormField>
-      <FormField name="category" label="Category">
+      <FormField name="category" label="Category" maxWidth="500px">
         <AutoComplete
           id="category"
           name="category"
@@ -49,6 +54,17 @@ export const CostsFormFields = observer(function CostsFormFields() {
           completeMethod={handleSearch}
           onChange={handleChange}
           dropdown />
+      </FormField>
+      <FormField name="cost" label="Cost" error={errors.cost} maxWidth="500px">
+        <InputNumber
+          id="cost"
+          name="cost"
+          value={values.cost}
+          onChange={handleChangeCost}
+          onBlur={handleBlur}
+          minFractionDigits={0}
+          maxFractionDigits={2}
+        />
       </FormField>
 
       <div className="flex">

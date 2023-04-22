@@ -9,4 +9,5 @@ export type Cost = {
   description: string;
   date: Date;
   category: Category | null;
+  cost: number;
 }

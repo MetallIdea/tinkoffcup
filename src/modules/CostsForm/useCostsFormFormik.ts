@@ -10,6 +10,7 @@ export type FormValues = {
   description: string;
   date: Date;
   category: Category | null;
+  cost: number;
 }
 
 export function useCostsFormFormik() {
@@ -21,6 +22,7 @@ export function useCostsFormFormik() {
     description: costsStore.cost?.description ?? '',
     date: costsStore.cost?.date ?? new Date(),
     category: costsStore.cost?.category ?? null,
+    cost: costsStore.cost?.cost ?? 0,
   }
 
   const validate = (values: FormValues) => {
@@ -29,6 +31,19 @@ export function useCostsFormFormik() {
     if (!values.title) {
       errors.title = 'Title is required';
     }
+
+    if (!values.date) {
+      errors.date = 'Date is required';
+    }
+
+    if (!values.cost) {
+      errors.cost = 'Cost is required';
+    } else if (values.cost > 1000000000000) {
+      errors.cost = 'Cost cannot be more 1000000000000';
+    } else if (values.cost <= 0) {
+      errors.cost = 'Cost cannot be less or equal zero';
+    }
+
 
     return errors;
   }
