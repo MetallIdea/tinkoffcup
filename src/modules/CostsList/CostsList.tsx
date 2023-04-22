@@ -12,6 +12,8 @@ import { Column } from 'primereact/column';
 import { Cost } from '../../core/types/costs';
 import { useEffect } from 'react';
 import { ChartModal } from './modals/ChartModal';
+import { DeleteConfirmationModal } from './modals/DeleteConfirmationModal';
+import { CategoriesModal } from './modals/CategoriesModal';
 
 export const CostsList = observer(function CostsList() {
   const numberFormat = Intl.NumberFormat();
@@ -24,7 +26,7 @@ export const CostsList = observer(function CostsList() {
   }, []);
 
   const handleDelete = (id: string) => () => {
-    costsStore.deleteCost(id)
+    costsStore.showDeleteModal(id)
   }
 
   return (
@@ -47,6 +49,9 @@ export const CostsList = observer(function CostsList() {
       </DataTable>
 
       <ChartModal />
+      <DeleteConfirmationModal />
+
+      <CategoriesModal />
     </div>
   )
 });

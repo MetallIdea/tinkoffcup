@@ -2,22 +2,8 @@ import { makeAutoObservable } from 'mobx';
 import { v4 as uuidv4 } from 'uuid';
 import { Cost } from '../core/types/costs';
 import { categoriesStore } from './CategoriesStore';
-import { ChartData } from 'chart.js';
-import { getRandomColor } from '../core/helpers/colors';
 
-export interface ICostsStore {
-  costs: Cost[];
-
-  cost?: Cost;
-
-  filteredCosts: Cost[];
-
-  setCost(cost: Cost): void;
-
-  filterCost(text: string): void;
-}
-
-export class CostsStore implements ICostsStore {
+export class CostsStore {
   categoriesStore = categoriesStore;
 
   costs: Cost[] = [];
@@ -25,8 +11,6 @@ export class CostsStore implements ICostsStore {
   cost?: Cost;
 
   filteredCosts: Cost[] = [];
-
-  chartData: ChartData | null = null;
 
   searchFilter = '';
 
@@ -36,7 +20,7 @@ export class CostsStore implements ICostsStore {
 
   categoriesFilter: string | null = null;
 
-  chartModalVisible = false;
+  deleteItemId: string | null = null;
 
   constructor() {
     makeAutoObservable(this);
@@ -73,6 +57,7 @@ export class CostsStore implements ICostsStore {
 
     if (index > -1) {
       this.costs.splice(index, 1);
+      this.filter();
     }
   }
 
@@ -131,44 +116,12 @@ export class CostsStore implements ICostsStore {
     this.categoriesFilter = null;
   }
 
-  showChartModal() {
-    this.chartModalVisible = true;
+  showDeleteModal(id: string) {
+    this.deleteItemId = id;
   }
 
-  hideChartModal() {
-    this.chartModalVisible = false;
-  }
-
-  calculateChartData() {
-    const isUncategorizedExist = this.filteredCosts.some(({ category }) => !category);
-
-    const labels = this.categoriesStore.categories.map(({title}) => title);
-
-    if (isUncategorizedExist) {
-      labels.push('uncategorized');
-    }
-
-    const data = this.categoriesStore.categories.map(({ id }) =>
-      this.filteredCosts.filter(({ category }) => id === category?.id)
-        .reduce((prev, curr) => prev + curr.cost, 0));
-
-    if (isUncategorizedExist) {
-      data.push(this.filteredCosts.filter(({ category }) => !category)
-        .reduce((prev, curr) => prev + curr.cost, 0))
-    }
-
-    this.chartData = {
-      labels,
-      datasets: [
-        {
-          data: this.categoriesStore.categories.map(({ id }) =>
-            this.filteredCosts.filter(({ category }) => id === category?.id)
-              .reduce((prev, curr) => prev + curr.cost, 0)),
-
-          backgroundColor: this.categoriesStore.categories.map(() => getRandomColor()),
-        }
-      ],
-    }
+  hideDeleteModal() {
+    this.deleteItemId = null;
   }
 }
 

@@ -3,25 +3,30 @@ import { Dialog } from 'primereact/dialog';
 import { costsStore } from '../../../store/CostsStore';
 import { Chart } from 'primereact/chart';
 import { useEffect } from 'react';
+import { chartStore } from '../../../store/ChartStore';
 
 export const ChartModal = observer(function ChartModal() {
   useEffect(() => {
-    costsStore.calculateChartData();
+    chartStore.calculateChartData();
   }, []);
 
   const handleHide = () => {
-    costsStore.hideChartModal();
+    chartStore.hideChartModal();
   }
 
-  if (!costsStore.chartModalVisible) {
+  if (!chartStore.chartModalVisible) {
     return null;
   }
 
   return (
     <Dialog visible onHide={handleHide}>
-      <Chart type="doughnut" data={costsStore.chartData as object} options={{
-        cutout: '60%'
-      }} className="w-full md:w-30rem" />
+      {
+        costsStore.filteredCosts.length ? (
+          <Chart type="doughnut" data={chartStore.chartData as object} options={{
+            cutout: '60%'
+          }} className="w-full md:w-30rem" />
+        ) : <div className="text-center">No data</div>
+      }
     </Dialog>
   )
 })

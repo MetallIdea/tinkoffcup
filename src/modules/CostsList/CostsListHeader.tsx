@@ -8,6 +8,7 @@ import { Calendar, CalendarChangeEvent } from 'primereact/calendar';
 import { FormField } from '../../core/components/form/FormField';
 import { Dropdown, DropdownChangeEvent } from 'primereact/dropdown';
 import { categoriesStore } from '../../store/CategoriesStore';
+import { chartStore } from '../../store/ChartStore';
 
 export const CostsListHeader = observer(function CostsListHeader() {
   const handleChangeSearch: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -27,7 +28,7 @@ export const CostsListHeader = observer(function CostsListHeader() {
   }
 
   const handleClickViewChart = () => {
-    costsStore.showChartModal();
+    chartStore.showChartModal();
   }
 
   return (

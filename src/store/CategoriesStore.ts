@@ -2,13 +2,7 @@ import { makeAutoObservable } from 'mobx';
 import { v4 as uuidv4 } from 'uuid';
 import { Category } from '../core/types/costs';
 
-export interface ICategoriesStore {
-  categories: Category[];
-
-  ensureCategory(category: Category | string | null): Category | null;
-}
-
-export class CategoriesStore implements ICategoriesStore {
+export class CategoriesStore {
   categories: Category[] = [];
 
   constructor() {
