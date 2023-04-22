@@ -1,14 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { Template } from '../Template';
 
-jest.mock('../TemplateStore');
-
 function setup() {
   render(<Template />);
 
   return {
     pageObject: {
-      test: () => screen.getByText(/Test2/),
+      test: () => screen.getByText(/Test/),
     }
   }
 }

@@ -9,6 +9,6 @@ export const ErrorBoundary = observer(function ErrorBoundary() {
 
   return <div className={styles.self}>
     <div className={styles.title}>Error</div>
-    <div className={styles.text}>{error?.statusText ?? error?.error.message}</div>
+    <div className={styles.text}>{error?.statusText ?? (error?.error?.message ?? error?.message)}</div>
   </div>;
 });

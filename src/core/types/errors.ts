@@ -4,11 +4,13 @@ export enum ErrorStatus {
 
 export type RouteError = {
   data: string;
-  error: {
+  error?: {
     message: string;
     stack: string;
   };
   internal: boolean;
   status: ErrorStatus;
   statusText: string;
+
+  message?: string;
 }

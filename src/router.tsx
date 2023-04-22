@@ -9,11 +9,20 @@ export const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
     children: [
       {
-        path: '/module',
+        path: '/costs',
         lazy: async () => {
-          const { Template } = await import('./modules/_Template/Template');
+          const { CostsList } = await import('./modules/CostsList/CostsList');
           return {
-            Component: Template,
+            Component: CostsList,
+          }
+        }
+      },
+      {
+        path: '/costs/:id',
+        lazy: async () => {
+          const { CostsForm } = await import('./modules/CostsForm/CostsForm');
+          return {
+            Component: CostsForm,
           }
         }
       },
