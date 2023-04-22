@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import { v4 as uuidv4 } from 'uuid';
-import { Category, Cost } from '../core/types/costs';
+import { Cost } from '../core/types/costs';
 import { categoriesStore } from './CategoriesStore';
 import { ChartData } from 'chart.js';
 import { getRandomColor } from '../core/helpers/colors';
