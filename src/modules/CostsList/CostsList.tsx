@@ -10,9 +10,14 @@ import { CostsListHeader } from './CostsListHeader';
 import { CostsListFooter } from './CostsListFooter';
 import { Column } from 'primereact/column';
 import { Cost } from '../../core/types/costs';
+import { useEffect } from 'react';
 
 export const CostsList = observer(function CostsList() {
   const numberFormat = Intl.NumberFormat();
+
+  useEffect(() => {
+    costsStore.filterCost('');
+  }, []);
 
   const handleDelete = (id: string) => () => {
     costsStore.deleteCost(id)
@@ -21,7 +26,7 @@ export const CostsList = observer(function CostsList() {
   return (
     <div className={styles.self}>
       <DataTable<Cost[]>
-        value={costsStore.costs}
+        value={costsStore.filteredCosts}
         tableStyle={{ minWidth: '50rem' }}
         header={<CostsListHeader />}
         footer={<CostsListFooter />}>
