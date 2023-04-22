@@ -11,7 +11,7 @@ function setup() {
 
   return {
     pageObject: {
-      getRows: () => screen.queryAllByRole('row'),
+      getNoResults: () => screen.queryByText(/No results found/),
     }
   }
 }
@@ -21,5 +21,5 @@ test('should render 0 rows', () => {
     pageObject
   } = setup();
 
-  expect(pageObject.getRows()).toHaveLength(0)
+  expect(pageObject.getNoResults()).toBeInTheDocument();
 });
