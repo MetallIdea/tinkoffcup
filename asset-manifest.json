@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/tinkoffcup/static/css/main.644431dd.css",
+    "main.js": "/tinkoffcup/static/js/main.8f154659.js",
+    "static/css/313.31d6cfe0.chunk.css": "/tinkoffcup/static/css/313.31d6cfe0.chunk.css",
+    "static/js/313.4df7de87.chunk.js": "/tinkoffcup/static/js/313.4df7de87.chunk.js",
+    "static/css/38.31d6cfe0.chunk.css": "/tinkoffcup/static/css/38.31d6cfe0.chunk.css",
+    "static/js/38.3189dcbc.chunk.js": "/tinkoffcup/static/js/38.3189dcbc.chunk.js",
+    "static/js/508.f7f0d599.chunk.js": "/tinkoffcup/static/js/508.f7f0d599.chunk.js",
+    "static/js/342.7fd9eb22.chunk.js": "/tinkoffcup/static/js/342.7fd9eb22.chunk.js",
+    "static/js/262.fd66cf22.chunk.js": "/tinkoffcup/static/js/262.fd66cf22.chunk.js",
+    "static/js/109.7ff93a4a.chunk.js": "/tinkoffcup/static/js/109.7ff93a4a.chunk.js",
+    "static/media/primeicons.svg": "/tinkoffcup/static/media/primeicons.e1441b135b3ca9ad643c.svg",
+    "static/media/primeicons.eot": "/tinkoffcup/static/media/primeicons.d44157bdfa026dc877af.eot",
+    "static/media/primeicons.woff": "/tinkoffcup/static/media/primeicons.10d3152104f2208ac82a.woff",
+    "static/media/primeicons.ttf": "/tinkoffcup/static/media/primeicons.ea5358601d0a3fd6670b.ttf",
+    "static/media/primeicons.woff2": "/tinkoffcup/static/media/primeicons.78172950b335ccdb94e2.woff2",
+    "static/media/color.png": "/tinkoffcup/static/media/color.6441e63a57ccc5105bad.png",
+    "index.html": "/tinkoffcup/index.html",
+    "main.644431dd.css.map": "/tinkoffcup/static/css/main.644431dd.css.map",
+    "main.8f154659.js.map": "/tinkoffcup/static/js/main.8f154659.js.map",
+    "313.4df7de87.chunk.js.map": "/tinkoffcup/static/js/313.4df7de87.chunk.js.map",
+    "38.3189dcbc.chunk.js.map": "/tinkoffcup/static/js/38.3189dcbc.chunk.js.map",
+    "508.f7f0d599.chunk.js.map": "/tinkoffcup/static/js/508.f7f0d599.chunk.js.map",
+    "342.7fd9eb22.chunk.js.map": "/tinkoffcup/static/js/342.7fd9eb22.chunk.js.map",
+    "262.fd66cf22.chunk.js.map": "/tinkoffcup/static/js/262.fd66cf22.chunk.js.map",
+    "109.7ff93a4a.chunk.js.map": "/tinkoffcup/static/js/109.7ff93a4a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.644431dd.css",
+    "static/js/main.8f154659.js"
+  ]
+}
