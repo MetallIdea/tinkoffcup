@@ -11,12 +11,16 @@ import { CostsListFooter } from './CostsListFooter';
 import { Column } from 'primereact/column';
 import { Cost } from '../../core/types/costs';
 import { useEffect } from 'react';
+import { ChartModal } from './modals/ChartModal';
 
 export const CostsList = observer(function CostsList() {
   const numberFormat = Intl.NumberFormat();
+  const dateFormat = Intl.DateTimeFormat();
 
   useEffect(() => {
-    costsStore.filterCost('');
+    costsStore.filter();
+
+    return () => costsStore.resetFilter();
   }, []);
 
   const handleDelete = (id: string) => () => {
@@ -33,6 +37,7 @@ export const CostsList = observer(function CostsList() {
         <Column field="title" body={(row: Cost) => <Link to={`/costs/${row.id}`}>{row.title}</Link>} />
         <Column field="category" body={(row: Cost) => <Badge value={row.category?.title ?? 'uncategorized'} />} />
         <Column field="cost" body={(row: Cost) => numberFormat.format(row.cost)} />
+        <Column field="date" body={(row: Cost) => dateFormat.format(row.date)} />
         <Column
           body={
           (row: Cost) =>
@@ -40,6 +45,8 @@ export const CostsList = observer(function CostsList() {
           }
         />
       </DataTable>
+
+      <ChartModal />
     </div>
   )
 });

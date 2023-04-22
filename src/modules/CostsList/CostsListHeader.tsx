@@ -15,12 +15,18 @@ export const CostsListHeader = observer(function CostsListHeader() {
     costsStore.filterByDate(event.value instanceof Date ? event.value : null);
   }
 
+  const handleClickViewChart = () => {
+    costsStore.showChartModal();
+  }
+
   return (
     <div className="flex justify-content-between align-items-center">
       <div className="flex justify-content-between align-items-center">
         <Link to="/costs/new">
           <Button label="New" />
         </Link>
+
+        <Button onClick={handleClickViewChart} label="View chart" />
       </div>
 
       <div className="flex justify-content-end align-items-center">
