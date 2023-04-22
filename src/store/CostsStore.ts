@@ -1,6 +1,7 @@
 import { makeAutoObservable } from 'mobx';
-import { Cost } from '../core/types/costs';
 import { v4 as uuidv4 } from 'uuid';
+import { Cost } from '../core/types/costs';
+import { categoriesStore } from './CategoriesStore';
 
 export interface ICostsStore {
   costs?: Cost[];
@@ -11,6 +12,8 @@ export interface ICostsStore {
 }
 
 export class CostsStore implements ICostsStore {
+  categoriesStore = categoriesStore;
+
   costs: Cost[] = [];
 
   cost?: Cost;

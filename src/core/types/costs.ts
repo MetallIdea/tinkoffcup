@@ -7,5 +7,6 @@ export type Cost = {
   id: string;
   title: string;
   description: string;
-  categories: Category[];
+  date: Date;
+  category: Category | null;
 }
