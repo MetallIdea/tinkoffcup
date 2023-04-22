@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tinkoffcup/static/css/main.644431dd.css",
-    "main.js": "/tinkoffcup/static/js/main.8f154659.js",
+    "main.js": "/tinkoffcup/static/js/main.0555a192.js",
     "static/css/313.31d6cfe0.chunk.css": "/tinkoffcup/static/css/313.31d6cfe0.chunk.css",
     "static/js/313.4df7de87.chunk.js": "/tinkoffcup/static/js/313.4df7de87.chunk.js",
     "static/css/38.31d6cfe0.chunk.css": "/tinkoffcup/static/css/38.31d6cfe0.chunk.css",
@@ -18,7 +18,7 @@
     "static/media/color.png": "/tinkoffcup/static/media/color.6441e63a57ccc5105bad.png",
     "index.html": "/tinkoffcup/index.html",
     "main.644431dd.css.map": "/tinkoffcup/static/css/main.644431dd.css.map",
-    "main.8f154659.js.map": "/tinkoffcup/static/js/main.8f154659.js.map",
+    "main.0555a192.js.map": "/tinkoffcup/static/js/main.0555a192.js.map",
     "313.4df7de87.chunk.js.map": "/tinkoffcup/static/js/313.4df7de87.chunk.js.map",
     "38.3189dcbc.chunk.js.map": "/tinkoffcup/static/js/38.3189dcbc.chunk.js.map",
     "508.f7f0d599.chunk.js.map": "/tinkoffcup/static/js/508.f7f0d599.chunk.js.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.644431dd.css",
-    "static/js/main.8f154659.js"
+    "static/js/main.0555a192.js"
   ]
 }
