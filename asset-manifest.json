@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/tinkoffcup/static/css/main.644431dd.css",
-    "main.js": "/tinkoffcup/static/js/main.0555a192.js",
+    "main.js": "/tinkoffcup/static/js/main.b07e2eb9.js",
     "static/css/313.31d6cfe0.chunk.css": "/tinkoffcup/static/css/313.31d6cfe0.chunk.css",
     "static/js/313.4df7de87.chunk.js": "/tinkoffcup/static/js/313.4df7de87.chunk.js",
     "static/css/38.31d6cfe0.chunk.css": "/tinkoffcup/static/css/38.31d6cfe0.chunk.css",
-    "static/js/38.3189dcbc.chunk.js": "/tinkoffcup/static/js/38.3189dcbc.chunk.js",
+    "static/js/38.0331dbb3.chunk.js": "/tinkoffcup/static/js/38.0331dbb3.chunk.js",
     "static/js/508.f7f0d599.chunk.js": "/tinkoffcup/static/js/508.f7f0d599.chunk.js",
     "static/js/342.7fd9eb22.chunk.js": "/tinkoffcup/static/js/342.7fd9eb22.chunk.js",
     "static/js/262.fd66cf22.chunk.js": "/tinkoffcup/static/js/262.fd66cf22.chunk.js",
@@ -18,9 +18,9 @@
     "static/media/color.png": "/tinkoffcup/static/media/color.6441e63a57ccc5105bad.png",
     "index.html": "/tinkoffcup/index.html",
     "main.644431dd.css.map": "/tinkoffcup/static/css/main.644431dd.css.map",
-    "main.0555a192.js.map": "/tinkoffcup/static/js/main.0555a192.js.map",
+    "main.b07e2eb9.js.map": "/tinkoffcup/static/js/main.b07e2eb9.js.map",
     "313.4df7de87.chunk.js.map": "/tinkoffcup/static/js/313.4df7de87.chunk.js.map",
-    "38.3189dcbc.chunk.js.map": "/tinkoffcup/static/js/38.3189dcbc.chunk.js.map",
+    "38.0331dbb3.chunk.js.map": "/tinkoffcup/static/js/38.0331dbb3.chunk.js.map",
     "508.f7f0d599.chunk.js.map": "/tinkoffcup/static/js/508.f7f0d599.chunk.js.map",
     "342.7fd9eb22.chunk.js.map": "/tinkoffcup/static/js/342.7fd9eb22.chunk.js.map",
     "262.fd66cf22.chunk.js.map": "/tinkoffcup/static/js/262.fd66cf22.chunk.js.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.644431dd.css",
-    "static/js/main.0555a192.js"
+    "static/js/main.b07e2eb9.js"
   ]
 }
